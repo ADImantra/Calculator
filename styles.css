@@ -7,12 +7,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: lightslategray;
+}
+
+button {
+    background-color: rgb(216, 216, 216);
 }
 
 .calculator {
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color:rgb(71, 71, 71);
     border: 2px solid gray;
     border-radius: 10px;
     padding: 10px;
@@ -20,10 +25,13 @@ body {
 }
 
 .display {
-    background-color: blueviolet;
+    background-color: rgb(44, 65, 65);
+    border: 2px solid gray;
+    border-radius: 10px;
 }
 
 .num-display {
+    color: aliceblue;
     display: flex;
     justify-content: flex-end;
     margin: 20px;

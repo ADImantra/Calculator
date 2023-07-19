@@ -2,6 +2,7 @@ let displayTextBase = [];
 let displayTextNew = [];
 let operatorCurrent = ``;
 let primed = false;
+let chain = false;
 let baseValue = 0;
 let newValue = 0;
 
@@ -19,60 +20,95 @@ const exponentButton = document.getElementById(`exponent`);
 const result = document.getElementById(`result`);
 
 multiplyButton.addEventListener(`click`, () => {
-    operatorCurrent = `multiply`
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `multiply`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `multiply`;
+    };
 });
 
 divideButton.addEventListener(`click`, () => {
-    operatorCurrent = `divide`
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `divide`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `divide`;
+    };
 });
 
 subtractButton.addEventListener(`click`, () => {
-    operatorCurrent = `subtract`;
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `subtract`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `subtract`;
+    };
 });
 
 addButton.addEventListener(`click`, () => {
-    operatorCurrent = `add`;
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `add`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `add`;
+    };
+    
 });
 
 remainderButton.addEventListener(`click`, () => {
-    operatorCurrent = `remainder`;
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `remainder`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `remainder`;
+    };
 });
 
 sqrtButton.addEventListener(`click`, () => {
-    operatorCurrent = `sqrt`;
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `sqrt`;
+        primed = true;
+    } else {
+        resultGiver()
+    };
 });
 
 exponentButton.addEventListener(`click`, () => {
-    operatorCurrent = `exp`;
-    primed = true;
+    if (operatorCurrent === ``) {
+        operatorCurrent = `exponent`;
+        primed = true;
+    } else {
+        resultGiver();
+        operatorCurrent = `exponent`;
+    };
 });
+
+clearButton.addEventListener(`click`, clear);
+
+result.addEventListener(`click`,  resultGiver);
 
 numpad.forEach(num => num.addEventListener(`click`, () => {
     if (!primed) {
         displayTextBase.push(num.textContent);
         baseValue = parseInt(displayTextBase.join(``), 10)
         display.textContent = displayTextBase.join(``);
-        console.log(baseValue)
-        console.log(newValue)
         
     } else {
         displayTextNew.push(num.textContent);
         newValue = parseInt(displayTextNew.join(``), 10)
         display.textContent = displayTextNew.join(``);
-        console.log(baseValue)
-        console.log(newValue)
     };
 
 }));
 
 function multiply(baseV, newV) {
-    return baseV * newV;
+    return baseV * newV
 };
 
 function divide(baseV, newV) {
@@ -103,14 +139,14 @@ function exponent(baseV, newV) {
     return geoSum;
 };
 
-
-result.addEventListener(`click`, () => {
+function resultGiver() {
     switch (operatorCurrent) {
         case `multiply`:
             baseValue = multiply(baseValue, newValue);
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `divide`:
@@ -118,6 +154,7 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `subtract`:
@@ -125,6 +162,7 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `add`:
@@ -132,6 +170,7 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `remainder`:
@@ -139,6 +178,7 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `sqrt`:
@@ -146,6 +186,7 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
 
         case `exp`:
@@ -153,11 +194,12 @@ result.addEventListener(`click`, () => {
             display.textContent = baseValue;
             displayTextBase = [];
             displayTextNew = [];
+            chain = true;
             break
     }
-});
+}
 
-clearButton.addEventListener(`click`, () => {
+function clear() {
     displayTextBase = [];
     displayTextNew = [];
     baseValue = 0;
@@ -165,5 +207,5 @@ clearButton.addEventListener(`click`, () => {
     operatorCurrent = ``;
     primed = false;
     display.textContent = 0;
-});
+}
 
