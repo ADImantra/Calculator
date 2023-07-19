@@ -13,13 +13,20 @@ body {
     display: flex;
     flex-direction: column;
     background-color: black;
+    border: 2px solid gray;
+    border-radius: 10px;
     padding: 10px;
     gap: 4px;
 }
 
 .display {
     background-color: blueviolet;
-    text-align: right;
+}
+
+.num-display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
 }
 
 .num-pad {
@@ -29,6 +36,7 @@ body {
 }
 
 .row {
+    display: flex;
     flex: 1;
 }
 
@@ -36,8 +44,18 @@ body {
     padding: 30px;
 }
 
+.operator {
+    padding: 30px;
+}
 
+#exponent {
+    padding: 27px;
+}
+
+#clear {
+    padding: 26px;
+}
 
 #num-0 {
-    width: 155px;
+    width: 144px;
 }
