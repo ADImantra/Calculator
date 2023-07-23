@@ -8,10 +8,15 @@ body {
     align-items: center;
     justify-content: center;
     background-color: lightslategray;
+    gap: 45px;
 }
 
 button {
     background-color: rgb(216, 216, 216);
+}
+
+h1 {
+    text-align: center;
 }
 
 .calculator {
@@ -65,5 +70,5 @@ button {
 }
 
 #num-0 {
-    width: 144px;
+    width: 72px;
 }

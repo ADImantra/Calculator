@@ -96,12 +96,12 @@ result.addEventListener(`click`,  resultGiver);
 numpad.forEach(num => num.addEventListener(`click`, () => {
     if (!primed) {
         displayTextBase.push(num.textContent);
-        baseValue = parseInt(displayTextBase.join(``), 10)
+        baseValue = parseFloat(displayTextBase.join(``), 10)
         display.textContent = displayTextBase.join(``);
         
     } else {
         displayTextNew.push(num.textContent);
-        newValue = parseInt(displayTextNew.join(``), 10)
+        newValue = parseFloat(displayTextNew.join(``), 10)
         display.textContent = displayTextNew.join(``);
     };
 
@@ -127,8 +127,8 @@ function remainder(baseV, newV) {
     return baseV % newV;
 };
 
-function sqrt(baseV, newV) {
-    return baseV + newV;
+function sqrt(baseV) {
+    return Math.sqrt(baseV);
 };
 
 function exponent(baseV, newV) {
